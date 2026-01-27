@@ -10,8 +10,8 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
-  title: "Personal Profile",
-  description: "Selamat datang di website profile pribadiku",
+  title: "Indra Firmansyah",
+  description: "Welcome to my personal portfolio website!",
 };
 
 export default function RootLayout({
