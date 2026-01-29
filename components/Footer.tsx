@@ -40,13 +40,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white text-slate-900 py-20 sm:py-24 border-t border-slate-200">
+    <footer className="bg-white text-slate-900 py-20 sm:py-24 border-t border-slate-200 animate-fade-in-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Main Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12 stagger-children">
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <a href="#home" className="inline-flex items-center gap-2 mb-6 group">
+            <a href="#home" className="inline-flex items-center gap-2 mb-6 group hover-scale">
               <div className="w-12 h-12 rounded-lg bg-blue-400 flex items-center justify-center text-white font-bold text-lg group-hover:shadow-lg group-hover:scale-105 transition">
                 <span className="text-sm font-mono font-bold">&lt;/&gt;</span>
               </div>
@@ -69,7 +69,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a 
                     href={link.href} 
-                    className="text-slate-600 hover:text-blue-400 transition duration-300 text-sm hover:translate-x-1 inline-block"
+                    className="text-slate-600 hover:text-blue-400 transition duration-300 text-sm hover:translate-x-1 inline-block hover-glow"
                   >
                     {link.name}
                   </a>
@@ -88,7 +88,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 hover:text-blue-400 transition duration-300 flex items-center gap-3 group text-sm"
+                  className="text-slate-600 hover:text-blue-400 transition duration-300 flex items-center gap-3 group text-sm hover-scale"
                 >
                   <span className="w-5 h-5 flex items-center justify-center group-hover:scale-110 transition">
                     {social.icon}
