@@ -22,7 +22,8 @@
       "@/*": ["./*"],
       "@/hooks/*": ["./hooks/*"],
       "@/components/*": ["./components/*"]
-    }
+    },
+    "types": ["next", "next/image-types/global"]
   },
   "include": [
     "next-env.d.ts",
