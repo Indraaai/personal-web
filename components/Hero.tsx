@@ -38,7 +38,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
               <a 
-                href="https://drive.google.com/file/d/1O9c9ZkFzWKwlNaAOE1OtYpynDY_CTHPV/view?usp=sharing" 
+                href="https://drive.google.com/file/d/1efP-PB6kuxN4rUeBIbyUl1pdi_O2UUNe/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 bg-blue-400 hover:bg-blue-500 hover:shadow-lg hover:scale-105 text-white font-semibold text-sm sm:text-base rounded-lg transition duration-300 shadow-md"
