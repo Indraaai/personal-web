@@ -32,7 +32,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl">
-              Computer Science student at Universitas Malikussaleh passionate about building innovative web solutions and exploring machine learning.
+              Computer Science student at Malikussaleh University passionate about building innovative web solutions and exploring machine learning.
             </p>
 
             {/* CTA Buttons */}
