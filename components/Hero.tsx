@@ -38,7 +38,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
               <a 
-                href="https://drive.google.com/file/d/1efP-PB6kuxN4rUeBIbyUl1pdi_O2UUNe/view?usp=sharing" 
+                href="https://drive.google.com/file/d/1E35y-3T6b2pqn-01QhrVY8mwwDE1anC-/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 bg-blue-400 hover:bg-blue-500 hover:shadow-lg hover:scale-105 text-white font-semibold text-sm sm:text-base rounded-lg transition duration-300 shadow-md"
@@ -55,6 +55,15 @@ export default function Hero() {
                 My Work
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a 
+                href="https://drive.google.com/drive/folders/1C4VdmU23wB7T-GUIydrcxtorAw8jc8go?usp=sharing" 
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-slate-300 text-slate-900 font-semibold text-sm sm:text-base rounded-lg hover:bg-slate-50 hover:border-blue-400 hover:shadow-lg hover:scale-105 transition duration-300"
+              >
+                Certifications
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </a>
             </div>
