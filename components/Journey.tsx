@@ -22,6 +22,11 @@ export default function Journey() {
 
   const experienceData = [
     {
+      year: "April 2026 - Now",
+      company: "PT Sinergi Inovasi Tekno",
+      position: "Lead Team Laravel Division (Internship)"
+    },
+    {
       year: "2024 - Now",
       company: "Freelance Projects",
       position: "Full Stack / Machine Learning Projects"
@@ -47,7 +52,7 @@ export default function Journey() {
     <section id="journey" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <h2 ref={titleRef} className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-12 sm:mb-16 lg:mb-20 text-center ${titleVisible ? 'animate-fade-in-down' : 'opacity-0'}`}>My Journey</h2>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           {/* Education */}
           <div ref={educationRef} className={educationVisible ? 'stagger-children' : ''}>
@@ -68,7 +73,7 @@ export default function Journey() {
                   {idx !== educationData.length - 1 && (
                     <div className="absolute left-1.5 sm:left-2 top-5 sm:top-6 w-0.5 h-12 sm:h-14 bg-blue-200"></div>
                   )}
-                  
+
                   <div className="bg-blue-50 rounded-lg p-4 sm:p-5 border border-blue-200 hover:shadow-lg hover-lift transition">
                     <p className="text-xs sm:text-sm font-semibold text-blue-600 mb-1">{edu.year}</p>
                     <h4 className="font-semibold text-slate-900 text-sm sm:text-base mb-1">{edu.institution}</h4>
@@ -98,7 +103,7 @@ export default function Journey() {
                   {idx !== experienceData.length - 1 && (
                     <div className="absolute left-1.5 sm:left-2 top-5 sm:top-6 w-0.5 h-12 sm:h-14 bg-blue-200"></div>
                   )}
-                  
+
                   <div className="bg-blue-50 rounded-lg p-4 sm:p-5 border border-blue-200 hover:shadow-lg hover-lift transition">
                     <p className="text-xs sm:text-sm font-semibold text-blue-600 mb-1">{exp.year}</p>
                     <h4 className="font-semibold text-slate-900 text-sm sm:text-base mb-1">{exp.company}</h4>
