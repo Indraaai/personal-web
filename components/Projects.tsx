@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useState, useRef, type CSSProperties } from 'react';
 import { useInView } from '@/hooks/useInView';
 import projects from '@/data/projects';
 import type { Project } from '@/data/projects';
@@ -50,6 +50,30 @@ export default function Projects() {
       document.body.style.overflow = '';
     };
   }, [selected]);
+
+  const touchStartY = useRef<number | null>(null);
+  const touchEndY = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+    touchEndY.current = null;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartY.current != null && touchEndY.current != null) {
+      const delta = touchEndY.current - touchStartY.current;
+      // If user swiped down by more than 80px, close modal
+      if (delta > 80) {
+        setSelected(null);
+      }
+    }
+    touchStartY.current = null;
+    touchEndY.current = null;
+  };
 
   return (
     <section id="projects" className="py-20 sm:py-24 px-4 sm:px-6 bg-white">
@@ -137,9 +161,20 @@ export default function Projects() {
 
         {/* Modal */}
         {selected && (
-          <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center px-3 sm:px-6" aria-modal="true" role="dialog">
-            <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" onClick={() => setSelected(null)} />
-            <div className="relative z-10 w-full max-w-5xl overflow-hidden bg-white shadow-2xl max-h-[100vh] lg:h-auto rounded-none lg:rounded-2xl border border-white/10">
+          <div
+            className="fixed inset-0 z-50 flex items-start sm:items-center justify-center px-3 sm:px-6"
+            aria-modal="true"
+            role="dialog"
+            onClick={() => setSelected(null)}
+          >
+            <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" />
+            <div
+              className="relative z-10 w-full max-w-5xl overflow-hidden bg-white shadow-2xl max-h-[100vh] lg:h-auto rounded-none lg:rounded-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <div className="grid max-h-[100vh] grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] overflow-hidden h-auto">
                 <div className="relative w-full h-56 sm:h-72 lg:h-auto lg:min-h-full bg-slate-950 p-2 sm:p-3 flex items-center justify-center">
                   <Image
@@ -154,7 +189,7 @@ export default function Projects() {
                   <button
                     onClick={() => setSelected(null)}
                     aria-label="Close modal"
-                    className="absolute right-3 top-3 hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-lg transition hover:bg-white hover:text-slate-900"
+                    className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-lg transition hover:bg-white hover:text-slate-900"
                   >
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
