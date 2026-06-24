@@ -162,67 +162,83 @@ export default function Projects() {
         {/* Modal */}
         {selected && (
           <div
-            className="fixed inset-0 z-50 flex items-start sm:items-center justify-center px-3 sm:px-6"
+            className="fixed inset-0 z-50 overflow-y-auto"
             aria-modal="true"
             role="dialog"
             onClick={() => setSelected(null)}
           >
-            <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" />
-            <div
-              className="relative z-10 w-full max-w-5xl overflow-hidden bg-white shadow-2xl max-h-[100vh] lg:h-auto rounded-none lg:rounded-2xl border border-white/10"
-              onClick={(e) => e.stopPropagation()}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              <div className="grid max-h-[100vh] grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] overflow-hidden h-auto">
-                <div className="relative w-full h-56 sm:h-72 lg:h-auto lg:min-h-full bg-slate-950 p-2 sm:p-3 flex items-center justify-center">
+            {/* Backdrop */}
+            <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" />
+
+            {/* Container */}
+            <div className="relative min-h-screen flex justify-center p-2 sm:p-6">
+              <div
+                className="relative z-10 w-full max-w-5xl bg-white rounded-xl overflow-hidden shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+
+                {/* Image */}
+                <div className="relative w-full aspect-video">
                   <Image
                     src={selected.image}
                     alt={selected.title}
                     fill
-                    className="object-contain"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
                     priority
+                    className="object-cover"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent" />
+
                   <button
                     onClick={() => setSelected(null)}
                     aria-label="Close modal"
-                    className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-lg transition hover:bg-white hover:text-slate-900"
+                    className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-700 shadow-lg hover:bg-slate-100"
                   >
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   </button>
                 </div>
 
-                <div
-                  className="flex flex-col overflow-y-auto p-5 sm:p-6 lg:p-8 h-full flex-1"
-                  style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Project Detail</p>
-                      <h3 className="mt-2 text-2xl sm:text-3xl font-bold leading-tight text-slate-900">
-                        {selected.title}
-                      </h3>
-                    </div>
-                  </div>
+                {/* Content */}
+                <div className="p-6 md:p-8">
 
-                  <div className="mt-5 space-y-4 text-sm sm:text-base leading-7 text-slate-600">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+                    Project Detail
+                  </p>
+
+                  <h3 className="mt-2 text-2xl md:text-4xl font-bold text-slate-900">
+                    {selected.title}
+                  </h3>
+
+                  <div className="mt-6 space-y-4 text-slate-600 leading-8">
                     {selected.description.split(/\n\n+/).map((p, i) => (
                       <p key={i}>{p}</p>
                     ))}
                   </div>
 
-                  <div className="mt-6 hidden sm:block">
-                    <p className="text-sm font-semibold text-slate-900 mb-3">Tech Stack</p>
+                  {/* Tech Stack */}
+                  <div className="mt-8">
+                    <h4 className="font-semibold text-slate-900 mb-3">
+                      Tech Stack
+                    </h4>
+
                     <div className="flex flex-wrap gap-2">
                       {selected.tech.map((t) => (
                         <span
                           key={t}
-                          className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs sm:text-sm font-semibold text-blue-700"
+                          className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700"
                         >
                           {t}
                         </span>
@@ -230,22 +246,25 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div className="mt-8 hidden sm:flex flex-col sm:flex-row gap-3 sm:items-center">
+                  {/* Actions */}
+                  <div className="mt-8 flex flex-col sm:flex-row gap-3">
                     <a
                       href={selected.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                      className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition"
                     >
                       Visit Project
                     </a>
+
                     <button
                       onClick={() => setSelected(null)}
-                      className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+                      className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
                     >
                       Close
                     </button>
                   </div>
+
                 </div>
               </div>
             </div>

@@ -22,6 +22,11 @@ export default function Journey() {
 
   const experienceData = [
     {
+      year: "Mei 2026 - Now",
+      company: "Kelas Kampus Indonesia",
+      position: "Backend Developer (Internship)"
+    },
+    {
       year: "April 2026 - Now",
       company: "PT Sinergi Inovasi Tekno",
       position: "Lead Team Laravel Division (Internship)"
