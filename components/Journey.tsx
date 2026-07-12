@@ -24,7 +24,7 @@ export default function Journey() {
     {
       year: "juli 2026 - Now",
       company: "Exocloud Indonesia",
-      position: "Backend Developer (Internship)",
+      position: "Web Developer (Internship)",
     },
     {
       year: "Mei 2026 - Now",
