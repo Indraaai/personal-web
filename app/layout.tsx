@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Slab } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const robotoSlab = Roboto_Slab({
   variable: "--font-roboto-slab",
@@ -12,7 +12,6 @@ const robotoSlab = Roboto_Slab({
 export const metadata: Metadata = {
   title: "Indra Firmansyah",
   description: "Welcome to my personal portfolio website!",
-
 };
 
 export default function RootLayout({
@@ -21,15 +20,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${robotoSlab.variable} font-roboto-slab antialiased`}
+        className={`${robotoSlab.variable} font-sans antialiased bg-background text-foreground`}
       >
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <SmoothScrollProvider>
+          {/* Container utama dengan border neo di sekeliling halaman */}
+          <div className="min-h-screen border-4 border-black pt-16">
+            {children}
+          </div>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
 }
-

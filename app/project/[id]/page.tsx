@@ -1,26 +1,27 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { use } from 'react';
 import projects from '@/data/projects';
 
 type Props = {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 };
 
 export default function ProjectPage({ params }: Props) {
-    const id = Number(params.id);
+    const { id: idStr } = use(params);
+    const id = Number(idStr);
     const project = projects.find((p) => p.id === id);
 
     if (!project) {
         return (
-            <div className="min-h-screen flex items-center justify-center px-4">
-                <div className="text-center">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <div className="min-h-screen flex items-center justify-center px-4 bg-white">
+                <div className="text-center border-4 border-black p-8 shadow-neo">
+                    <h2 className="text-3xl font-black text-black mb-4">
                         Project Not Found
                     </h2>
-
                     <Link
                         href="/"
-                        className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+                        className="inline-flex items-center font-black text-[#2D5CFF] border-b-2 border-[#2D5CFF] hover:text-black hover:border-black transition-colors"
                     >
                         ← Back to Home
                     </Link>
@@ -35,22 +36,17 @@ export default function ProjectPage({ params }: Props) {
         .filter(Boolean);
 
     return (
-        <main className="bg-slate-50 min-h-screen py-10 sm:py-16 px-4">
+        <main className="bg-white min-h-screen py-10 sm:py-16 px-4">
             <div className="max-w-5xl mx-auto">
-
-                {/* Back Button */}
                 <Link
-                    href="/"
-                    className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-6 transition"
+                    href="/#projects"
+                    className="inline-flex items-center gap-2 font-black text-black border-b-2 border-black hover:text-[#2D5CFF] hover:border-[#2D5CFF] transition-colors mb-6"
                 >
-                    ← Back
+                    ← Back to Projects
                 </Link>
 
-                {/* Card */}
-                <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-200">
-
-                    {/* Hero Image */}
-                    <div className="relative aspect-video">
+                <div className="bg-white border-4 border-black shadow-neo-lg">
+                    <div className="relative aspect-video border-b-4 border-black">
                         <Image
                             src={project.image}
                             alt={project.title}
@@ -58,30 +54,24 @@ export default function ProjectPage({ params }: Props) {
                             priority
                             className="object-cover"
                         />
-
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-
+                        <div className="absolute inset-0 bg-black/60" />
                         <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                            <h1 className="text-3xl md:text-5xl font-bold text-white">
+                            <h1 className="text-3xl md:text-5xl font-black text-white">
                                 {project.title}
                             </h1>
                         </div>
                     </div>
 
-                    {/* Content */}
                     <div className="p-6 md:p-10">
-
-                        {/* Tech Stack */}
                         <div className="mb-8">
-                            <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-3">
+                            <h2 className="text-sm font-black uppercase tracking-wider text-black mb-3 border-b-2 border-black pb-1">
                                 Tech Stack
                             </h2>
-
                             <div className="flex flex-wrap gap-2">
                                 {project.tech.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-medium border border-blue-100"
+                                        className="px-4 py-2 border-2 border-black bg-[#2D5CFF] text-white text-sm font-black shadow-neo-sm"
                                     >
                                         {tech}
                                     </span>
@@ -89,45 +79,39 @@ export default function ProjectPage({ params }: Props) {
                             </div>
                         </div>
 
-                        {/* Description */}
-                        <div className="prose prose-slate max-w-none">
+                        <div className="max-w-none">
                             {paragraphs.length > 0 ? (
                                 paragraphs.map((paragraph, index) => (
                                     <p
                                         key={index}
-                                        className="text-slate-600 leading-8 text-base md:text-lg"
+                                        className="text-black/80 leading-8 text-base md:text-lg font-medium mb-4"
                                     >
                                         {paragraph}
                                     </p>
                                 ))
                             ) : (
-                                <p className="text-slate-600 leading-8 text-base md:text-lg">
+                                <p className="text-black/80 leading-8 text-base md:text-lg font-medium">
                                     {project.description}
                                 </p>
                             )}
                         </div>
 
-                        {/* Actions */}
-                        <div className="mt-10 pt-8 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
-
+                        <div className="mt-10 pt-8 border-t-3 border-black flex flex-col sm:flex-row gap-3">
                             <a
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition"
+                                className="inline-flex items-center justify-center px-6 py-3 bg-[#2D5CFF] text-white font-black text-sm border-3 border-black shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
                             >
                                 Visit Project
                             </a>
-
                             <Link
-                                href="/"
-                                className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition"
+                                href="/#projects"
+                                className="inline-flex items-center justify-center px-6 py-3 bg-white text-black font-black text-sm border-3 border-black shadow-neo-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
                             >
                                 Back to Portfolio
                             </Link>
-
                         </div>
-
                     </div>
                 </div>
             </div>

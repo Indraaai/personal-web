@@ -58,7 +58,7 @@ export const projects: Project[] = [
     },
     {
         id: 7,
-        title: " Website Absensi Keanggotaan Lab Informatika",
+        title: " Absensi Keanggotaan Lab Informatika",
         description: "This project is a personal project that I developed independently. The project was designed as a platform to manage attendance lists and a QR code–based attendance system, allowing real-time usage and monitoring. I built this project using Fullstack Laravel.",
         tech: ["Laravel", "MYSQL", "PHP"],
         link: "https://github.com/Indraaai/AbsensiQrCode-Laravel",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     },
     {
         id: 8,
-        title: " Website Form Jurusan Informatika",
+        title: " Form Jurusan Informatika",
         description: "This project is an internal system that I developed for the Informatics Engineering department. The project was built by adopting a concept similar to Google Forms, allowing the department to manage internal forms that can be filled out by students. This project was developed using Fullstack Laravel",
         tech: ["Laravel", "MYSQL", "PHP"],
         link: "https://github.com/Indraaai/FormJurusan",
