@@ -36,7 +36,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-black/70 leading-relaxed max-w-xl">
-              Mahasiswa Ilmu Komputer di Universitas Malikussaleh yang
+              Mahasiswa Teknik Informatika di Universitas Malikussaleh yang
               bersemangat membangun solusi web inovatif dan menjelajahi machine
               learning.
             </p>
@@ -45,7 +45,7 @@ export default function Hero() {
             {/* CTA Buttons – 3 tombol sejajar di mobile */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-2">
               <a
-                href="https://drive.google.com/file/d/1Qskl-NAemhg7ybAr0Fuy_QlUhwrYuUNh/view?usp=sharing"
+                href="https://drive.google.com/file/d/1XWRuFEXXsb4n3UojUzBYO-LO8yx1jORI/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-2 sm:px-6 py-2.5 sm:py-3 bg-[#2D5CFF] text-white font-bold text-xs sm:text-sm border-3 border-black shadow-neo hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200"
